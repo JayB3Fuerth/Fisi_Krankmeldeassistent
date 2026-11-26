@@ -1,0 +1,77 @@
+Projektübersicht: FiSy Krankmeldeassistent (KMA)
+
+
+
+1.Projektziel, Rahmenbedingungen & Teamorganisation
+
+  Projekt- & Produktname: FiSy Krankmeldeassistent / KMA
+
+  Problem & Produktziel: Schüler an Schulen und Azubis in der Berufsschule sollen morgens in höchstens 3 Minuten klären können, 
+  ob sie mit ihren Beschwerden in die Schule gehen können, Lieber zu Hause bleiben sollten oder sofortige Hilfe benötigen.
+  
+  Leitprinzipien & Datenschutz: Gesundheit geht immer vor Schule oder Klassenarbeiten. Der Assistent stellt keine Diagnose, ersetzt keinen Arzt, benötigt kein Konto und arbeitet vollständig offline ohne Speicherung von Namen oder Gesundheitsdaten.
+  
+  Teamrollen & Arbeitsort: Projektidee & Nutzerperspektive (Jay), User Stories & Product Owner (Mika), Zusammenarbeit & Scrum Master (Fakoo), Task-Dokumentation & Projektbeitrag (Andre); die Rolle Präsentation/Projektdokumentation entfällt mangels Personal. Als Arbeits- und Dokumentationsorte dienen Azure DevOps (IFS12C-FiSi-Krankmeldeassistent) sowie GitHub (JayB3Fuerth/Fisi_Krankmeldeassistent).
+  
+  Wichtige Stakeholder: Hauptnutzer sind Schüler und Azubis (Personas: Leon Bergmann, 15 Jahre, 10. Klasse; Selin Arslan, 19 Jahre, Azubi Kauffrau für Büromanagement). Hohes Interesse und hohen Einfluss haben zudem Eltern und das Entwicklerteam; vor Praxistests müssen Schulleitung, Datenschutzbeauftragte und Ärzte/Fachpersonal einbezogen werden.
+
+  Oberfläche: KMA ist eine Applikation, die als Webseite bzw. über eine Weboberfläche bedient werden kann. 
+  Es werden mehrere Fragen gestellt, die anhand vorgegebener Möglichkeiten beantwortet werden können. Ziel hierbei ist es, die Situation der jeweiligen Person beurteilen kassen zu können.
+
+
+
+2.Geprüfte Produkt-Features & 4-Stufen-Empfehlung
+
+  Auflistung der Hauptfeatures: 
+  1.	Warnzeichen erkennen und sofort Hilfe anzeigen.	Es gibt bestimmte Fragen, welche bei einer "Ja" als antwort einen Hilfe-Hinweis auslösen (112 / 116117 + Erwachsenen holen).
+      Da es es wichtig, dass KMA klar zwischen seiner Empfehlung und einem Ärtzlichem Rat unterscheidet. Sollte der Assistent erkennen, dass die Gesundheit des Nutzers gefährdet sein sollte, muss dies sofort kommuniziert werden.
+
+  2.	Indidivuelle Einschätzung. 
+      Beschwerden kurz und einfach abfragen	Auswahlfelder für Symptome (u. a. Fieber, Husten, Kopf-/Halsweh) inkl. Stärke, Dauer und Selbsteinschätzung der Fitness (bspw. 1–10) in max. 3 Minuten.
+
+  3.	Empfehlung mit Begründung geben. 
+      Vier Stufen: 
+        Stufe 1 Zur Schule gehen (bei leichten Beschwerden, kein Fieber, jedoch fit)
+        Stufe 2 Zu Hause bleiben (z. B. Fieber, ansteckend)
+        Stufe 3 Abklären lassen (längere/unklare Beschwerden)
+        Stufe 4 Sofort Hilfe holen (zbs. Eltern oder Arzt) 
+        Im Zweifel gilt die vorsichtigere Stufe.
+
+  4.	Schultag angeben.
+      Abfrage von Stundenumfang und anstehenden Arbeiten/Tests. Dies kann ebenfalls auswirkungen auf den Tag haben. Kurze Tage beispielsweise kann man mit leichten Beschwerden besser überstehen als lange schultage mit mehreren Klausuren.
+
+  5.  Alters- und rollenspezifische Handlungstipps (bspw. unter 18: Eltern einbeziehen; ab 18: Krankmeldung bei Schule und/oder Betrieb einreichen, Nachschreiben klären)
+
+
+3. Product Backlog und Qualitätssicherung
+
+US1 Warnzeichen erkennen und sofort Hilfe anzeigen
+Leon "Als Schüler, der sich morgens sehr krank fühlt und allein zu Hause ist, möchte ich bei
+gefährlichen Beschwerden sofort sehen, ob ich wen anrufen soll, damit ich schnell die richtige
+Hilfe bekomme."
+
+US2 Beschwerden kurz und einfach abfragen
+Leon: "Als Schüler möchte ich meine Beschwerden einfach antippen können, statt viel zu tippen,
+damit ich, im Zweifelsfall, morgens schnell fertig bin."
+
+US3 Beschwerden kurz und einfach abfragen
+Selin: "Als Azubi möchte ich angeben, wie fit ich mich fühle, damit auch meine eigene Einschätzung in die Empfehlung mit einfließt."
+
+US4 Empfehlung mit Begründung geben
+Selin: "Als Azubi, die ungern fehlt, möchte ich zu meiner Empfehlung eine kurze Begründung
+bekommen, damit ich verstehe, warum Ausruhen gerade wichtiger ist, und kein schlechtes
+Gewissen haben muss."
+
+US5 Schultag angeben
+Selin: "Als Azubi möchte ich angeben können, dass heute eine Arbeit ansteht, damit ich einen Tipp bekomme, wie ich das Nachschreiben kläre."
+
+
+Priorisiertes Backlog (Rang 1–7) & INVEST-Erkenntnisse:
+US1: Warnzeichen abfragen & Notruf-Hinweis zeigen (Sicherheit zuerst; offener Punkt: Prüfung der Warnzeichenliste durch Fachperson).
+US2 (F1, Leon): Beschwerden mit Stärke und Dauer antippen (ohne Freitext, damit die Story klein bleibt).
+US4 (F3b, Selin): Empfehlung (Stufe 1–3) mit Begründung (auf feste Regeln für Stufe 1–3 verkleinert; hängt von US2 ab).
+US3 (F1, Selin): Fitness von 1–10 angeben.
+US6 (F4, Leon): Tipps für Schüler unter 18 (Eltern einbeziehen).
+US5 (F2, Selin): Arbeit/Test angeben für Nachschreibetipps.
+
+Definition of Done (DoD): 6 verbindliche Kriterien, u. a. Lauffähigkeit auf Laptop und Handy, getestete Akzeptanzkriterien mit Sonderfällen, funktionsfähiger Warnzeichen-Check, Vier-Augen-Prinzip in Azure DevOps, keine Datenspeicherung bei Reload, sichtbarer Hinweis mit Trennung von Ärtlicher Diagnose.
